@@ -1,10 +1,12 @@
-import { IPostmanStore } from '@/components/postMan/src/types';
+import { IPostmanStore, IQuery } from '@/components/postMan/src/types';
 import { store } from '.';
 import { defineStore } from 'pinia';
 import type { Store } from 'pinia';
+import instance from '@/utils/request';
+
 export const usePostman = defineStore('usePostman', {
   state: (): IPostmanStore => ({
-    host: '', //服务器地址 域名(IP)+端口号
+    host: 'http://127.0.0.1:8080', //服务器地址 域名(IP)+端口号
     time: 0, // 更新间隔  0:只在初始化时调用
     timeUnit: 's', // 更新时间间隔的单位
     timeUnits: [
@@ -23,7 +25,32 @@ export const usePostman = defineStore('usePostman', {
     headers: [],
     body: []
   }),
-  actions: {},
+  actions: {
+    pushParamsData(paramsData: IQuery) {
+      this.params.push(paramsData);
+      this.getAddrWithParams();
+    },
+    getAddrWithParams() {
+      let params = '';
+      this.params.map((p) => {
+        console.log(p, '232');
+        if (!p.hasSplit) {
+          if (this.requestAddress.lastIndexOf('?') === -1) {
+            params += `?${p.KEY}=${p.VALUE}`;
+          } else params += `&${p.KEY}=${p.VALUE}`;
+          p.hasSplit = true;
+        }
+      });
+      this.requestAddress += params;
+    },
+    requestNetwork() {
+      instance.request({
+        url: this.url,
+        method: this.requestMethod,
+        data: this.body
+      });
+    }
+  },
   getters: {
     url: (state: IPostmanStore): string => state.host + state.requestAddress
   }

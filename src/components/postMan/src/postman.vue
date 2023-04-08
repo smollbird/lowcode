@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header></Header>
+    <Host></Host>
     <el-divider />
     <RequestPart></RequestPart>
     <Params></Params>
@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import Header from './components/header.vue';
+import Host from './components/host.vue';
 import RequestPart from './components/requestPart.vue';
 import Params from './components/params.vue';
 import { useData } from './hooks';

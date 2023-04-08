@@ -1,7 +1,9 @@
 interface IQuery {
-  key: string;
-  value: string;
-  description: string;
+  id: string;
+  KEY: string;
+  VALUE: string;
+  DESCRIPTION: string;
+  hasSplit: boolean;
 }
 
 export interface IQueryNav {
