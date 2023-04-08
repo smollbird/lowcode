@@ -1,0 +1,14 @@
+{
+  "indentStyle": "space",
+  "indentSize": 2,
+  "trimTrailingWhitespace": true,
+  "insertFinalNewline": true,
+  "maxLineLength": 100,
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "endOfLine": "lf",
+  "tabWidth": 2,
+  "printWidth": 80,
+  "useTabs": false
+}
