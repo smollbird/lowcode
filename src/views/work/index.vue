@@ -3,19 +3,39 @@
     <!-- layout -->
     <div class="work">
       <div class="work-header">
-        <el-button text @click="back">back</el-button>
-        <div>工作区</div>
-        <el-button text>保存</el-button>
+        <div>
+          <el-button text @click="back">home</el-button>
+          <el-button text @click="back">comp</el-button>
+          <el-button text @click="back">图层</el-button>
+          <el-button text @click="back">detail</el-button>
+          <el-button text @click="back">left</el-button>
+          <el-button text @click="back">right</el-button>
+        </div>
+        <div>
+          <span>工作区</span>
+        </div>
+        <div>
+          <el-button text>预览</el-button>
+          <el-button text>保存</el-button>
+          <el-button text>中文</el-button>
+          <el-button text>夜间</el-button>
+          <el-button text>个人</el-button>
+        </div>
       </div>
-      <div class="work-nav">nav</div>
-      <div class="work-main" :style="{ height: height - 81 + 'px' }">
-        <div class="work-main-left">left</div>
+      <!-- <div class="work-nav">nav</div> -->
+      <div class="work-main" :style="{ height: height - 32 + 'px' }">
+        <div class="work-main-left">
+          <comp-list></comp-list>
+        </div>
         <div class="work-main-body">body</div>
-        <div class="work-main-right">right</div>
+        <div class="work-main-right">
+          <Aside></Aside>
+        </div>
       </div>
     </div>
 
     <!-- dialog -->
+    <!-- 请求接口 -->
     <el-dialog
       :before-close="dialogBeforeClose"
       title="设置接口信息"
@@ -40,7 +60,8 @@
 import { ref } from 'vue';
 import router from '@/router';
 import PostMan from '@/components/postMan/index';
-
+import compList from './components/comp-list/index.vue';
+import Aside from './components/aside/index.vue';
 const height = ref(window.innerHeight);
 window.onresize = function () {
   height.value = window.innerHeight;
@@ -73,18 +94,18 @@ const back = () => {
     display: flex;
     overflow: hidden;
     .work-main-left {
-      background-color: #1a949d;
-      flex: 2;
+      // background-color: #1a949d;
+      // flex: 4;
     }
 
     .work-main-body {
       background-color: #7b146c;
-      flex: 6;
+      flex: 5;
     }
 
     .work-main-right {
-      flex: 2;
-      background-color: #9d1a1a;
+      flex: 3;
+      background-color: @background-color--normal;
     }
   }
 }
