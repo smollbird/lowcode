@@ -104,7 +104,7 @@ const back = () => {
     }
 
     .work-main-right {
-      flex: 3;
+      width: 15%;
       background-color: @background-color--normal;
     }
   }

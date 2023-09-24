@@ -14,3 +14,9 @@ li {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+.m10 {
+  margin: 10px 0;
+}
+.m20 {
+  margin: 20px 0;
+}

@@ -29,7 +29,8 @@
       </div>
     </div>
 
-    <div class="third part hidden">
+    <div class="third part">
+    <!-- hidden -->
       <div class="comp">
         <div>图层</div>
         <div>&lt;</div>

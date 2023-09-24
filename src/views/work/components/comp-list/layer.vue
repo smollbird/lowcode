@@ -37,6 +37,7 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    color: @color--normal;
   }
 }
 </style>
